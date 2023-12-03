@@ -1,0 +1,527 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #3b4363;
+  background-image: linear-gradient(#1f3756, #141539);
+  background-attachment: fixed;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  color: #fff;
+}
+
+main {
+  padding-top: 30px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+.info div {
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  padding: 0 30px;
+  border-radius: 10px;
+}
+
+.info h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.info h3 {
+  margin: 0.5rem 0;
+}
+
+.game {
+  background: url("./images/bg-triangle.svg") center no-repeat;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.result {
+  margin-top: 3rem;
+}
+
+.game button,
+.result button:not(#reset) {
+  padding: 50px;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  margin: 1.5rem;
+  cursor: pointer;
+}
+
+.result button:not(#reset) {
+  cursor: default;
+}
+
+.again {
+  z-index: 1;
+}
+
+.game img {
+  pointer-events: none;
+}
+
+#rock {
+  border: 20px solid #dc2f4f;
+  box-shadow: inset 0 8px 0 0 #ccc, 0 7px 0 0 #c32240;
+}
+
+#rockRes {
+  border: 20px solid #dc2f4f;
+}
+
+#paper {
+  border: 20px solid #5671f5;
+  box-shadow: inset 0 8px 0 0 #ccc, 0 7px 0 0 #0d2fd9;
+}
+
+#paperRes {
+  border: 20px solid #5671f5;
+}
+
+#sciss {
+  border: 20px solid #eca922;
+  box-shadow: inset 0 8px 0 0 #ccc, 0 7px 0 0 #d39312;
+}
+
+#scissRes {
+  border: 20px solid #eca922;
+}
+
+#lizard {
+  border: 20px solid #8452e3;
+  box-shadow: inset 0 8px 0 0 #ccc, 0 7px 0 0 #5a20c5;
+}
+
+#lizardRes {
+  border: 20px solid #8452e3;
+}
+
+#spock {
+  border: 20px solid #4bbbcf;
+  box-shadow: inset 0 8px 0 0 #ccc, 0 7px 0 0 #2fa1b5;
+}
+
+#spockRes {
+  border: 20px solid #4bbbcf;
+}
+
+#spock:hover,
+#lizard:hover,
+#sciss:hover,
+#paper:hover,
+#rock:hover {
+  box-shadow: 0 0 20px 5px #fff;
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.switch h1 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+#switch {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  width: 110px;
+  margin: 0 2rem;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  background-color: #427bc5;
+  transition: all 400ms ease;
+  border-radius: 50px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  left: 5px;
+  bottom: 5px;
+  background-color: #fff;
+  transition: all 400ms ease;
+  border-radius: 50px;
+}
+
+#switch input {
+  display: none;
+}
+
+input:checked + .slider {
+  background-color: #141539;
+}
+
+input:checked + .slider::before {
+  transform: translateX(100%);
+}
+
+#rulesBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 900;
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px 35px;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+#rulesBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.rules {
+  /* max-width: 400px;
+  margin: 0 auto; */
+  background-color: #fff;
+  color: #000;
+  border-radius: 20px;
+  padding: 0 30px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  animation: opacity 1.5s;
+}
+
+.rules div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.rules h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #8a90ac;
+}
+
+.rules button {
+  background: none;
+  border: none;
+  color: #8a90ac;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.rules img {
+  padding-bottom: 30px;
+}
+
+.result {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  min-height: 50vh;
+  display: none;
+}
+
+.result h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.result #reset {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  padding: 7px 25px 10px 25px;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.result #reset:hover {
+  box-shadow: 0 0 20px 5px #fff;
+}
+
+.hard {
+  background: url("./images/bg-pentagon.svg") center no-repeat;
+  position: relative;
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  display: none;
+}
+
+.hard button {
+  padding: 50px;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.hard img {
+  pointer-events: none;
+}
+
+.hard #rock {
+  top: 10px;
+  right: auto;
+  left: 210px;
+}
+
+.hard #paper {
+  top: 120px;
+  left: auto;
+  right: 50px;
+}
+
+.hard #sciss {
+  bottom: 10px;
+  left: auto;
+  right: 100px;
+}
+
+.hard #lizard {
+  bottom: 10px;
+  left: 100px;
+}
+
+.hard #spock {
+  top: 120px;
+  right: auto;
+  left: 50px;
+}
+
+.winner {
+  box-shadow: 0 0 0 75px hsla(214, 47%, 23%, 80%),
+    0 0 0 150px hsla(214, 47%, 23%, 60%), 0 0 0 225px hsla(214, 47%, 23%, 40%);
+}
+
+@media screen and (max-width: 705px) {
+  .winner {
+    box-shadow: 0 0 0 25px hsla(214, 47%, 23%, 80%),
+      0 0 0 45px hsla(214, 47%, 23%, 60%), 0 0 0 75px hsla(214, 47%, 23%, 40%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .info {
+    max-width: 450px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .game {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .game button {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
+
+  .game #rock {
+    top: 0;
+    left: 0;
+  }
+
+  .game #paper {
+    top: 0;
+    right: 0;
+  }
+
+  .game #sciss {
+    bottom: 10px;
+    left: 120px;
+  }
+
+  #rulesBtn {
+    position: static;
+    float: right;
+    margin: 2rem 1rem;
+  }
+
+  .result {
+    margin-top: 0;
+  }
+
+  .result div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .result h1 {
+    font-size: 1rem;
+  }
+
+  .result button:not(#reset) {
+    padding: 40px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result button img {
+    height: 40px;
+  }
+
+  .hard {
+    margin-top: 2rem;
+    background-size: 85%;
+    width: 300px;
+    height: 300px;
+  }
+
+  .hard button {
+    height: 50px;
+    width: 50px;
+    padding: 30px;
+    margin: 0;
+  }
+
+  .hard button img {
+    height: 30px;
+  }
+
+  .hard #rock {
+    top: 0;
+    left: 110px;
+    border: 10px solid #dc2f4f;
+  }
+
+  .hard #paper {
+    top: 80px;
+    right: 0;
+    border: 10px solid #5671f5;
+  }
+
+  .hard #sciss {
+    bottom: 10px;
+    right: 30px;
+    border: 10px solid #eca922;
+  }
+
+  .hard #lizard {
+    bottom: 10px;
+    left: 30px;
+    border: 10px solid #8452e3;
+  }
+
+  .hard #spock {
+    top: 80px;
+    left: 0;
+    border: 10px solid #4bbbcf;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .info div {
+    padding: 0 15px;
+  }
+
+  .game {
+    background-size: 85%;
+    width: 300px;
+    height: 300px;
+    margin-top: 2rem;
+  }
+
+  .game button {
+    padding: 20px;
+    height: 90px;
+    width: 90px;
+    margin: 0;
+  }
+
+  .game button img {
+    height: 30px;
+  }
+
+  #rock {
+    border: 10px solid #dc2f4f;
+  }
+
+  #paper {
+    border: 10px solid #5671f5;
+  }
+
+  #sciss {
+    border: 10px solid #eca922;
+  }
+
+  .again {
+    position: absolute;
+    bottom: 40px;
+  }
+
+  .rules img {
+    height: 260px;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

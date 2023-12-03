@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="./images/icon.png" />
+    <script
+      src="https://kit.fontawesome.com/cb96404d01.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <main>
+      <section class="info">
+        <img src="./images/logo.svg" alt="Logo" id="logo" />
+        <div class="score">
+          <h3>SCORE</h3>
+          <h1 id="score">0</h1>
+        </div>
+      </section>
+      <section class="switch">
+        <h1>Easy</h1>
+        <label id="switch">
+          <input type="checkbox" id="input" />
+          <span class="slider"></span>
+        </label>
+        <h1>Hard</h1>
+      </section>
+      <section class="game">
+        <button class="btn" id="rock">
+          <img src="./images/icon-rock.svg" alt="ROCK" />
+        </button>
+        <button class="btn" id="paper">
+          <img src="./images/icon-paper.svg" alt="IMG" />
+        </button>
+        <button class="btn" id="sciss">
+          <img src="./images/icon-scissors.svg" alt="IMG" />
+        </button>
+      </section>
+      <section class="rules">
+        <div>
+          <h1>Rules</h1>
+          <button id="exitRules"><i class="far fa-times-circle"></i></button>
+        </div>
+        <img src="./images/image-rules.svg" alt="Rules" id="rulesImg" />
+      </section>
+      <section class="result">
+        <div>
+          <h1>You Picked</h1>
+          <button id="userPicked">
+            <img src="" alt="IMG" />
+          </button>
+        </div>
+        <div class="again">
+          <h1 id="status"></h1>
+          <button id="reset">Play again</button>
+        </div>
+        <div>
+          <h1>The house picked</h1>
+          <button id="housePicked">
+            <img src="./images/icon-rock.svg" alt="IMG" />
+          </button>
+        </div>
+      </section>
+      <section class="hard">
+        <button class="btn" id="rock">
+          <img src="./images/icon-rock.svg" alt="ROCK" />
+        </button>
+        <button class="btn" id="paper">
+          <img src="./images/icon-paper.svg" alt="IMG" />
+        </button>
+        <button class="btn" id="sciss">
+          <img src="./images/icon-scissors.svg" alt="IMG" />
+        </button>
+        <button class="btn" id="lizard">
+          <img src="./images/icon-lizard.svg" alt="IMG" />
+        </button>
+        <button class="btn" id="spock">
+          <img src="./images/icon-spock.svg" alt="IMG" />
+        </button>
+      </section>
+      <button id="rulesBtn">Rules</button>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
